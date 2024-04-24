@@ -4,8 +4,7 @@ import { AuthContext } from "./userAuthentication/AuthProvider";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserInfo } from "../features/users/profileSlice";
 import { auth } from "../firebase";
-import { Button } from "react-bootstrap";
-import { PiSignOutBold } from "react-icons/pi";
+
 
 export default function RootLayout() {
   const { identity } = useContext(AuthContext);
