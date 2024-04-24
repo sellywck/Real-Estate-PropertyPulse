@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.listing-container {
+  height: 200px; 
+}
+
+html::-webkit-scrollbar{
+  display: none;
+}
+html{
+  scrollbar-width:none;
+}
