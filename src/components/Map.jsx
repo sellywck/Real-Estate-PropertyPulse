@@ -16,7 +16,7 @@ export default function Map({selectedListing}) {
 
   const position = [latitude, longitude ]
   return (
-    <MapContainer style={{ height: "100%", width: "100%", borderRadius:"10px" }}  center={position} zoom={9} scrollWheelZoom={true}>
+    <MapContainer style={{ height: "100%", width: "100%", borderRadius:"10px" }}  center={position} zoom={9} scrollWheelZoom={false}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
