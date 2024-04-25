@@ -157,8 +157,8 @@ export default function Search() {
 
   return (
     <>
-      <Container className="p-7 flex gap-8 max-w-6xl mx-auto h-screen overflow-hidden lg:flex-row flex-col">
-        <div className="p-7 flex-4 overflow-y-scroll ">
+      <Container className="p-7 flex gap-2 max-w-6xl mx-auto h-screen overflow-hidden lg:flex-row flex-col">
+        <div className=" flex-4 overflow-y-scroll ">
           <h1 className="text-3xl font-semibold text-gray-600">
             Listing results:
           </h1>
@@ -284,7 +284,7 @@ export default function Search() {
           </div>
         </div>
         <div
-          className="  flex-1 rounded-lg z-10"
+          className="flex-1 rounded-lg z-10"
         >
           <SearchMap listings={listings} />
         </div>
