@@ -61,7 +61,10 @@ export default function ListingIdPage() {
   const handleContactLandLord = () => {
     if (!currentUser.id) {
       setContact(false);
-      toast.info("Please sign in or sign up to contact the landlord");
+      toast.info("Please sign in or sign up to contact the landlord", {
+        autoClose: 2000,
+        position: "top-center",
+      });
       navigate("/signin");
     } else {
       setContact(true);
@@ -70,7 +73,10 @@ export default function ListingIdPage() {
 
   const handleViewContact = () => {
     if (!currentUser.id) {
-      toast.info("Please sign in or sign up to contact the landlord");
+      toast.info("Please sign in or sign up to contact the landlord", {
+        autoClose: 2000,
+        position: "top-center",
+      });
       navigate("/signin");
     } else {
       setviewPhoneNumber(!viewPhoneNumber);

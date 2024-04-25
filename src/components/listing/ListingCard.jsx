@@ -58,7 +58,8 @@ export default function ListingCard({ listing, onUnlike }) {
         );
 
         if (
-          response.data.message === "The like has been removed successfully."
+          //Dont change this sentence(fixed)
+          response.data.message === "The like has been removed successfully"
         ) {
           // If the like has been removed (unliked), update isLiked to false
           setIsLiked(false);
@@ -177,3 +178,4 @@ export default function ListingCard({ listing, onUnlike }) {
     </div>
   );
 }
+

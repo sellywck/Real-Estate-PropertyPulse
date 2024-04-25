@@ -108,7 +108,6 @@ export default function Home() {
               <Carousel.Item interval={2000} key={listing.id}>
                 <Carousel.Caption>
                   <h3 className="">{listing.name}</h3>
-                  {/* <p>{listing.description}</p> */}
                 </Carousel.Caption>
                 <Link to={`/listings/${listing.id}`}>
                   <div
