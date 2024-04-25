@@ -58,13 +58,13 @@ export default function ListingCard({ listing, onUnlike }) {
         );
 
         if (
-          response.data.message === "The like has been removed successfully"
+          response.data.message === "The like has been removed successfully."
         ) {
           // If the like has been removed (unliked), update isLiked to false
           setIsLiked(false);
           // Remove the unliked item from likes array
           setLikes(likes.filter((like) => like.user_id !== user_id));
-          toast.success("Property successfully removed from wishlists", {
+          toast.success("Property successfully removed from wishlists.", {
             autoClose: 2000,
             position: "top-center",
           });
@@ -76,7 +76,7 @@ export default function ListingCard({ listing, onUnlike }) {
           // Add the new like to likes array
  
           setLikes([...likes, response.data.data]);
-          toast.success("Property successfully added to wishlists", {
+          toast.success("Property successfully added to wishlists.", {
             autoClose: 2000,
             position: "top-center",
           });
