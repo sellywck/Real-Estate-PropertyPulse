@@ -243,7 +243,8 @@ export default function Profile() {
                   disabled
                 />
               </Form.Group>
-              <div className="mt-2 text-center">
+            </Form>
+            <div className="mt-2 text-center">
                 <Button
                   variant="danger "
                   onClick={handleShow}
@@ -253,7 +254,6 @@ export default function Profile() {
                 </Button>
                 <CreateListing show={show} handleClose={handleClose} />
               </div>
-            </Form>
           </Col>
         </Row>
         <div className="my-6">
