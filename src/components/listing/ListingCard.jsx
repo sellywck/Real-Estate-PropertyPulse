@@ -64,7 +64,7 @@ export default function ListingCard({ listing, onUnlike }) {
           setIsLiked(false);
           // Remove the unliked item from likes array
           setLikes(likes.filter((like) => like.user_id !== user_id));
-          toast.success("Property successfully removed to wishlists", {
+          toast.success("Property successfully removed from wishlists", {
             autoClose: 2000,
             position: "top-center",
           });
