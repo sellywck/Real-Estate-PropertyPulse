@@ -24,7 +24,7 @@ export default function Contact({ selectedListing }) {
   return (
     <>
       {landlord && (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 text-sm sm:text-lg">
           <p className="mb-0">
             Contact <span className="font-semibold">{landlord.username}</span>{" "}
             for{" "}
@@ -40,7 +40,7 @@ export default function Contact({ selectedListing }) {
             placeholder="Enter your message here..."
           ></textarea>
           <Link to={`mailto:${landlord.email}?subject=Regarding ${selectedListing.name}&body=${message}`}
-          className="bg-slate-700 text-white text-center p-3 rounded-lg hover:opacity-95 no-underline "
+          className="bg-slate-700 text-white text-center p-2 rounded-lg hover:opacity-95 no-underline "
           >
             SEND MESSAGE
           </Link>

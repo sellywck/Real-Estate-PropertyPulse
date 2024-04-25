@@ -12,3 +12,15 @@ html::-webkit-scrollbar{
 html{
   scrollbar-width:none;
 }
+
+@media (max-width: 768px) {
+  .map-container {
+    height: 40vh;
+  }
+}
+
+@media (min-width: 768px) {
+  .map-container {
+    height: 100%;
+  }
+}

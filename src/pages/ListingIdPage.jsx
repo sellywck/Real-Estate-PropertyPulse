@@ -102,7 +102,7 @@ export default function ListingIdPage() {
             {selectedListing["imageurls"].map((url) => (
               <Carousel.Item interval={1000} key={url}>
                 <div
-                  className="h-[400px]"
+                  className="h-[450px]"
                   style={{
                     background: `url(${url}) center no-repeat`,
                     backgroundSize: "cover",
@@ -133,113 +133,114 @@ export default function ListingIdPage() {
               Link copied
             </p>
           )}
-          <div className="m-12 flex flex-col md:flex-row max-w-6xl lg:mx-auto  rounded-lg">
-            <div className="w-full">
-              <p className="text-2xl font-semibold">
-                {selectedListing.name} - RM{" "}
-                {selectedListing.offer
-                  ? selectedListing.discountedprice?.toLocaleString("en-US")
-                  : selectedListing.regularprice?.toLocaleString("en-US")}
-                {selectedListing.type === "rent" && " / month"}
-              </p>
-              <p className="items-center text-slate-600">
-                <FaMapPin className="text-red-600 inline-block h-5 w-4 mr-2 " />
-                {selectedListing.address}
-              </p>
-              <div className="flex gap-4">
-                <p className="bg-red-900 w-full max-w-[200px] text-white text-center p-1 rounded-md">
-                  {selectedListing.type === "rent" ? "For rent" : "For Sale"}
+<div className="p-4 m-12 max-w-6xl lg:mx-auto bg-gray-100 shadow-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl lg:mx-auto rounded-lg ">
+              <div className="row-span-2">
+                <p className="text-xl sm:text-2xl font-semibold mb-3">
+                  {selectedListing.name} - RM{" "}
+                  {selectedListing.offer
+                    ? selectedListing.discountedprice?.toLocaleString("en-US")
+                    : selectedListing.regularprice?.toLocaleString("en-US")}
+                  {selectedListing.type === "rent" && " / month"}
                 </p>
-                {selectedListing.offer && (
-                  <p className="bg-green-900 w-full max-w-[200px] text-white text-center p-1 rounded-md">
-                    RM
-                    {+selectedListing.regularprice -
-                      +selectedListing.discountedprice}{" "}
-                    off
+                <p className="items-center text-slate-600 text-sm sm:text-lg">
+                  <FaMapPin className="text-red-600 inline-block h-4 w-3 mr-2 mb-1 sm:h-6 sm:w-4 sm:mb-2 " />
+                  {selectedListing.address}
+                </p>
+                <div className="flex gap-4 ">
+                  <p className="bg-red-600 font-semibold w-full max-w-auto text-white text-center p-1 rounded-md text-sm sm:text-lg">
+                    {selectedListing.type === "rent" ? "RENT" : "SALE"}
                   </p>
-                )}
-              </div>
-              <p className="text-slate-900 text-justify hyphens-auto">
-                {" "}
-                <span className="font-semibold text-black ">
-                  Description -
-                </span>{" "}
-                {selectedListing.description}
-              </p>
-              <ul className="flex p-0 items-center space-x-2.5 sm:space-x-10 text-sm font-semibold mb-3 text-green-900">
-                <li className="flex items-center gap-0.5 whitespace-nowrap ">
+                  {selectedListing.offer && (
+                    <p className="bg-green-600 font-semibold w-full max-w-auto text-white text-center p-1 rounded-md text-sm sm:text-lg">
+                      RM
+                      {+selectedListing.regularprice -
+                        +selectedListing.discountedprice}{" "}
+                      OFF
+                    </p>
+                  )}
+                </div>
+                <p className="text-slate-900 text-justify hyphens-auto text-sm sm:text-lg">
                   {" "}
-                  <IoBed className="text-lg" />
-                  {selectedListing.bedrooms > 1
-                    ? `${selectedListing.bedrooms} beds`
-                    : `${selectedListing.bedrooms} bed`}
-                </li>
-                <li className="flex items-center gap-0.5  whitespace-nowrap ">
-                  {" "}
-                  <TbBathFilled className="text-lg" />
-                  {selectedListing.bathrooms > 1
-                    ? `${selectedListing.bathrooms} baths`
-                    : `${selectedListing.bathrooms} bath`}
-                </li>
-                {selectedListing.parking ? (
-                  <li className="flex items-center gap-0.5  whitespace-nowrap ">
-                    {" "}
-                    <RiParkingBoxFill className="text-lg" />
-                    Parking
-                  </li>
-                ) : (
+                  <span className="font-semibold text-black ">
+                    Description -
+                  </span>{" "}
+                  {selectedListing.description}
+                </p>
+                <ul className="flex p-1 items-center space-x-2 sm:space-x-10 sm:text-lg text-sm font-semibold mb-3 text-green-900">
                   <li className="flex items-center gap-0.5 whitespace-nowrap ">
                     {" "}
-                    <BsFillSignNoParkingFill className="text-lg" />
-                    No Parking{" "}
+                    <IoBed className="text-lg" />
+                    {selectedListing.bedrooms > 1
+                      ? `${selectedListing.bedrooms} beds`
+                      : `${selectedListing.bedrooms} bed`}
                   </li>
-                )}
-                <li className="flex items-center gap-0.5 whitespace-nowrap">
-                  <FaChair className="text-lg" />
-                  {selectedListing.furnished ? "Furnished" : "Not furnished"}
-                </li>
-              </ul>
-              {currentUser &&
-                selectedListing.user_id !== currentUser.id &&
-                !contact && (
-                  <button
-                    onClick={handleViewContact}
-                    className="bg-slate-800 hover:bg-opacity-90 w-full text-white p-2 rounded-lg mb-2 flex items-center justify-center gap-2"
-                    aria-label={
-                      viewPhoneNumber
-                        ? "Hide phone number"
-                        : "View phone number"
-                    }
-                  >
-                    {viewPhoneNumber ? (
-                      <span>{landlord.phonenumber}</span>
-                    ) : (
-                      <>
-                        <IoMdPhonePortrait className="text-lg" />
-                        <span>VIEW PHONE NUMBER</span>
-                      </>
-                    )}
-                  </button>
-                )}
-              {currentUser &&
-                selectedListing.user_id !== currentUser.id &&
-                !contact && (
-                  <>
+                  <li className="flex items-center gap-0.5  whitespace-nowrap ">
+                    {" "}
+                    <TbBathFilled className="text-lg" />
+                    {selectedListing.bathrooms > 1
+                      ? `${selectedListing.bathrooms} baths`
+                      : `${selectedListing.bathrooms} bath`}
+                  </li>
+                  {selectedListing.parking ? (
+                    <li className="flex items-center gap-0.5  whitespace-nowrap ">
+                      {" "}
+                      <RiParkingBoxFill className="text-lg" />
+                      Parking
+                    </li>
+                  ) : (
+                    <li className="flex items-center gap-0.5 whitespace-nowrap ">
+                      {" "}
+                      <BsFillSignNoParkingFill className="text-lg" />
+                      No Parking{" "}
+                    </li>
+                  )}
+                  <li className="flex items-center gap-0.5 whitespace-nowrap">
+                    <FaChair className="text-lg" />
+                    {selectedListing.furnished ? "Furnished" : "Not furnished"}
+                  </li>
+                </ul>
+                {currentUser &&
+                  selectedListing.user_id !== currentUser.id &&
+                  !contact && (
                     <button
-                      onClick={handleContactLandLord}
-                      className="bg-slate-800 hover:opacity-90 w-full text-white p-2 rounded-lg "
+                      onClick={handleViewContact}
+                      className="bg-slate-800 hover:bg-opacity-90 w-full text-white p-2 rounded-lg mb-2 flex items-center justify-center gap-2 text-sm sm:text-lg"
+                      aria-label={
+                        viewPhoneNumber
+                          ? "Hide phone number"
+                          : "View phone number"
+                      }
                     >
-                      ENQUIRE NOW
+                      {viewPhoneNumber ? (
+                        <span>{landlord.phonenumber}</span>
+                      ) : (
+                        <>
+                          <IoMdPhonePortrait className="text-sm sm:text-lg" />
+                          <span>VIEW PHONE NUMBER</span>
+                        </>
+                      )}
                     </button>
-                  </>
+                  )}
+                {currentUser &&
+                  selectedListing.user_id !== currentUser.id &&
+                  !contact && (
+                    <>
+                      <button
+                        onClick={handleContactLandLord}
+                        className="bg-slate-800 hover:opacity-90 w-full text-white p-2 rounded-lg text-sm sm:text-lg "
+                      >
+                        ENQUIRE NOW
+                      </button>
+                    </>
+                  )}
+                {currentUser && contact && (
+                  <Contact selectedListing={selectedListing} />
                 )}
-              {currentUser && contact && (
-                <Contact selectedListing={selectedListing} />
-              )}
-            </div>
-            <hr className="mb-4" />
-            <div className="mt-6 mb-4 md:mt-0 md:ml-2 w-full h-[300px] md:h-[450px] z-10 overflow-x-hidden">
-              <Map selectedListing={selectedListing} />
+              </div>
+              <div className="row-span-2 h-full overflow-x-hidden">
+                <Map selectedListing={selectedListing} />
+              </div>
             </div>
           </div>
         </div>
